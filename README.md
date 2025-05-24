@@ -1,6 +1,6 @@
 # brutalkeepass
 ## Description
-Brute force tool for Keepass written in Python  
+Brute force tool for Keepass databases written in Python  
 ## Why?
 Useful when you cannot convert the database to a format that JTR or Hashcat can use:
 ```
