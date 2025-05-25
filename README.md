@@ -51,6 +51,7 @@ $ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt -o
 [*] Starting bruteforce process...
 [!] Success! Database password: Toyota
 [>] Dumping entries...
+--------------------
 [>] Title: JAMIE WILLIAMSON
 [>] Username: None
 [>] Password: redacted
