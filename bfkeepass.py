@@ -38,6 +38,7 @@ def main():
 					print(f"[!] Success! Database password: {passwordValue}")
 					if(outputEntries):
 						print("[>] Dumping entries...")
+						print("-" * 20)
 						for entry in kp.entries:
 							print(f"[>] Title: {entry.title}")
 							print(f"[>] Username: {entry.username}")
