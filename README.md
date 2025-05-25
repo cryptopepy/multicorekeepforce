@@ -10,9 +10,15 @@ $ keepass2john recovery.kdbx
 $
 ```
 ## Usage
-Example
 ```
 $ python bfkeepass.py 
+usage: bfkeepass.py [-h] -d DATABASE -w WORDLIST [-l] [-v]
+bfkeepass.py: error: the following arguments are required: -d/--database, -w/--wordlist
+$ 
+```
+Example
+```
+$ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt
 [*] Opening wordlist
 [*] Starting bruteforce process
 [!] Success! Vault password: Toyota
