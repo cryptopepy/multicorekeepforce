@@ -54,31 +54,31 @@ $ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt -o
 [>] Title: JAMIE WILLIAMSON
 [>] Username: None
 [>] Password: redacted
-[>] URL: puppy.htb
+[>] URL: example.htb
 [>] Notes: None
 --------------------
 [>] Title: ADAM SILVER
 [>] Username: None
 [>] Password: redacted
-[>] URL: puppy.htb
+[>] URL: example.htb
 [>] Notes: None
 --------------------
 [>] Title: ANTONY C. EDWARDS
 [>] Username: None
 [>] Password: redacted
-[>] URL: puppy.htb
+[>] URL: example.htb
 [>] Notes: None
 --------------------
 [>] Title: STEVE TUCKER
 [>] Username: None
 [>] Password: redacted
-[>] URL: puppy.htb
+[>] URL: example.htb
 [>] Notes: None
 --------------------
 [>] Title: SAMUEL BLAKE
 [>] Username: None
 [>] Password: redacted
-[>] URL: puppy.htb
+[>] URL: example.htb
 [>] Notes: None
 --------------------
 [>] Entry dump complete.
