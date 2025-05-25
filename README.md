@@ -12,7 +12,7 @@ $
 ## Usage
 ```
 $ python bfkeepass.py 
-usage: bfkeepass.py [-h] -d DATABASE -w WORDLIST [-l] [-v]
+usage: bfkeepass.py [-h] -d DATABASE -w WORDLIST [-o] [-v]
 bfkeepass.py: error: the following arguments are required: -d/--database, -w/--wordlist
 $ 
 ```
@@ -25,6 +25,66 @@ $ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt
 [*] Stopping bf process
 [*] Done.
 $ 
+```
+Example with verbose output enabled
+```
+$ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt -v
+[*] Running bfkeepass
+[>] Running against database: recovery.kdbx
+[>] Using wordlist: /usr/share/wordlists/rockyou.txt
+[>] Opening wordlist...
+[>] Successfully opened wordlist.
+[*] Starting bruteforce process...
+[>] Testing value: (123456)
+[>] Testing value: (nicole)
+[>] Testing value: (111111)
+[>] Testing value: (friends)
+[!] Success! Database password: Toyota
+[*] Stopping bruteforce process.
+[*] Done.
+$ 
+```
+Example with entry output enabled
+```
+$ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt -o
+[*] Running bfkeepass
+[*] Starting bruteforce process...
+[!] Success! Database password: Toyota
+[>] Dumping entries...
+[>] Title: JAMIE WILLIAMSON
+[>] Username: None
+[>] Password: redacted
+[>] URL: puppy.htb
+[>] Notes: None
+--------------------
+[>] Title: ADAM SILVER
+[>] Username: None
+[>] Password: redacted
+[>] URL: puppy.htb
+[>] Notes: None
+--------------------
+[>] Title: ANTONY C. EDWARDS
+[>] Username: None
+[>] Password: redacted
+[>] URL: puppy.htb
+[>] Notes: None
+--------------------
+[>] Title: STEVE TUCKER
+[>] Username: None
+[>] Password: redacted
+[>] URL: puppy.htb
+[>] Notes: None
+--------------------
+[>] Title: SAMUEL BLAKE
+[>] Username: None
+[>] Password: redacted
+[>] URL: puppy.htb
+[>] Notes: None
+--------------------
+[>] Entry dump complete.
+[*] Stopping bruteforce process.
+[*] Done.
+$
 ```
 ## Dependencies
 - [pykeepass](https://github.com/libkeepass/pykeepass): Python library to interact with Keepass databases
