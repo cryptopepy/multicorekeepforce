@@ -1,7 +1,8 @@
 # brutalkeepass
 ## Description
 - Brute force Keepass databases
-- Written in Python  
+- Written in Python
+- [Brute Forcing KeePass Database Passwords](https://medium.com/p/cbe2433b7beb)
 ## Why?
 Useful when you cannot convert the database to a format that JTR or Hashcat can use.
 ```
