@@ -2,7 +2,7 @@
 ## Description
 - Brute force Keepass databases
 - Written in Python
-- [Brute Forcing KeePass Database Passwords](https://medium.com/p/cbe2433b7beb)
+- [Brute Forcing KeePass Database Passwords](https://medium.com/p/cbe2433b7beb): How to brute force KeePass database passwords with Python and wordlist
 ## Why?
 Useful when you cannot convert the database to a format that JTR or Hashcat can use.
 ```
