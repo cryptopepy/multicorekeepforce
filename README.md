@@ -3,6 +3,8 @@
 - Brute force Keepass databases
 - Written in Python
 - [Brute Forcing KeePass Database Passwords](https://medium.com/p/cbe2433b7beb): How to brute force KeePass database passwords with Python and wordlist
+## Dependencies
+- [pykeepass](https://github.com/libkeepass/pykeepass): Python library to interact with Keepass databases
 ## Why?
 Useful when you cannot convert the database to a format that JTR or Hashcat can use.
 ```
@@ -88,5 +90,3 @@ $ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt -o
 [*] Done.
 $
 ```
-## Dependencies
-- [pykeepass](https://github.com/libkeepass/pykeepass): Python library to interact with Keepass databases
