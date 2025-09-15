@@ -18,7 +18,7 @@ def main():
     argParser = argparse.ArgumentParser(description="A multi-core script to test passwords against a KeePass database.")
     argParser.add_argument("-d", "--database", type=str, help="KeePass database file (.kdbx)", required=True)
     argParser.add_argument("-w", "--wordlist", type=str, help="Wordlist to use", required=True)
-    argParser.add_argument("-k", "--keyfile", type=str, help="Key file to use with the database")
+    argParser.add_argument("-k", "--keyfile", type=str, help="Key file to use with the database (not required)")
     argParser.add_argument("-c", "--cores", type=int, help="Number of CPU cores to use (default: all available)")
     argParser.add_argument("-o", "--output", help="Output entries on success", action="store_true")
     args = argParser.parse_args()

@@ -1,10 +1,20 @@
-# brutalkeepass
+# multicorekeepforce
 ## Description
+- Fork of toneillcodes brutalkeepass
 - Brute force Keepass databases
+- Adds support for keyfiles, multicore processing, and a progress bar
 - Written in Python
 - [Brute Forcing KeePass Database Passwords](https://medium.com/p/cbe2433b7beb): How to brute force KeePass database passwords with Python and wordlist
+
 ## Dependencies
 - [pykeepass](https://github.com/libkeepass/pykeepass): Python library to interact with Keepass databases
+- [tqdm](https://github.com/tqdm/tqdm): Python library for status bar
+
+Install dependencies using the `requirements.txt` file:
+```
+pip install -r requirements.txt
+```
+
 ## Why?
 Useful when you cannot convert the database to a format that JTR or Hashcat can use.
 ```
@@ -12,81 +22,62 @@ $ keepass2john recovery.kdbx
 ! recovery.kdbx : File version '40000' is currently not supported!
 $
 ```
+
 ## Usage
 ```
-$ python bfkeepass.py 
-usage: bfkeepass.py [-h] -d DATABASE -w WORDLIST [-o] [-v]
-bfkeepass.py: error: the following arguments are required: -d/--database, -w/--wordlist
-$ 
+$ python bfkeepforce.py 
+usage: bfkeepforce.py [-h] -d DATABASE -w WORDLIST [-k KEYFILE] [-c CORES] [-o]
+
+options:
+  -h, --help            show this help message and exit
+  -d DATABASE, --database DATABASE
+                        KeePass database file (.kdbx)
+  -w WORDLIST, --wordlist WORDLIST
+                        Wordlist to use
+  -k KEYFILE, --keyfile KEYFILE
+                        Key file to use with the database
+  -c CORES, --cores CORES
+                        Number of CPU cores to use (default: all available)
+  -o, --output          Output entries on success
 ```
-Example
+
+##Example Usage
 ```
-$ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt
-[*] Opening wordlist
-[*] Starting bruteforce process
-[!] Success! Vault password: Toyota
-[*] Stopping bf process
-[*] Done.
-$ 
+python bfkeepass_multi.py -d db.kdbx -w /usr/share/wordlists/rockyou.txt
+ 
+[*] bfkeepass multi-core script initialized.
+[>] Target Database: db.kdbx
+[>] Wordlist File: /usr/share/wordlists/rockyou.txt
+[>] Reading wordlist into memory...
+[>] 14344392 passwords loaded.
+[*] Using all 16 available CPU cores by default.
+[*] Starting the cracking process...
+Testing Passwords:   2%|▏         | 254823/14344392 [00:05<04:51, 48391.45pw/s]
 ```
-Example with verbose output enabled
+
+###Example with a keyfile in addition to a password
+Use --keyfile or -k to specify a keyfile. 
+
 ```
-$ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt -v
-[*] Running bfkeepass
-[>] Running against database: recovery.kdbx
-[>] Using wordlist: /usr/share/wordlists/rockyou.txt
-[>] Opening wordlist...
-[>] Successfully opened wordlist.
-[*] Starting bruteforce process...
-[>] Testing value: (123456)
-[>] Testing value: (nicole)
-[>] Testing value: (111111)
-[>] Testing value: (friends)
-[!] Success! Database password: Toyota
-[*] Stopping bruteforce process.
-[*] Done.
-$ 
+python bfkeepass_multi.py -d db.kdbx -w passwords.txt -k my_database.key
 ```
-Example with entry output enabled
+
+###Specify core count 
+Use --cores or the -c flag to specify how many CPU cores to use.
+
 ```
-$ python bfkeepass.py -d recovery.kdbx -w /usr/share/wordlists/rockyou.txt -o
-[*] Running bfkeepass
-[*] Starting bruteforce process...
-[!] Success! Database password: Toyota
-[>] Dumping entries...
---------------------
-[>] Title: JAMIE WILLIAMSON
-[>] Username: None
-[>] Password: redacted
-[>] URL: example.htb
-[>] Notes: None
---------------------
-[>] Title: ADAM SILVER
-[>] Username: None
-[>] Password: redacted
-[>] URL: example.htb
-[>] Notes: None
---------------------
-[>] Title: ANTONY C. EDWARDS
-[>] Username: None
-[>] Password: redacted
-[>] URL: example.htb
-[>] Notes: None
---------------------
-[>] Title: STEVE TUCKER
-[>] Username: None
-[>] Password: redacted
-[>] URL: example.htb
-[>] Notes: None
---------------------
-[>] Title: SAMUEL BLAKE
-[>] Username: None
-[>] Password: redacted
-[>] URL: example.htb
-[>] Notes: None
---------------------
-[>] Entry dump complete.
-[*] Stopping bruteforce process.
-[*] Done.
-$
+python bfkeepass_multi.py -d db.kdbx -w passwords.txt -c 8
 ```
+
+###Outputting Entries on Success
+Use the -o flag to dump all database entries after finding the correct password.
+
+```
+python bfkeepass_multi.py -d db.kdbx -w passwords.txt -o
+```
+
+
+##Good luck!
+
+Thank you to toneillcodes for the ideas & original code!
+Leave any feedback in Issues
