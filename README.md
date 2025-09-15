@@ -43,7 +43,7 @@ options:
 
 ##Example Usage
 ```
-python bfkeepass_multi.py -d db.kdbx -w /usr/share/wordlists/rockyou.txt
+python bfkeepforce.py -d db.kdbx -w /usr/share/wordlists/rockyou.txt
  
 [*] bfkeepass multi-core script initialized.
 [>] Target Database: db.kdbx
@@ -59,21 +59,21 @@ Testing Passwords:   2%|▏         | 254823/14344392 [00:05<04:51, 48391.45pw/s
 Use --keyfile or -k to specify a keyfile. 
 
 ```
-python bfkeepass_multi.py -d db.kdbx -w passwords.txt -k my_database.key
+python bfkeepforce.py -d db.kdbx -w passwords.txt -k my_database.key
 ```
 
 ###Specify core count 
 Use --cores or the -c flag to specify how many CPU cores to use.
 
 ```
-python bfkeepass_multi.py -d db.kdbx -w passwords.txt -c 8
+python bfkeepforce.py -d db.kdbx -w passwords.txt -c 8
 ```
 
 ###Outputting Entries on Success
 Use the -o flag to dump all database entries after finding the correct password.
 
 ```
-python bfkeepass_multi.py -d db.kdbx -w passwords.txt -o
+python bfkeepforce.py -d db.kdbx -w passwords.txt -o
 ```
 
 
